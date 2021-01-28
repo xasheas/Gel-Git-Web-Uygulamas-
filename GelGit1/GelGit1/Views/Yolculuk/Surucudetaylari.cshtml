@@ -1,0 +1,84 @@
+﻿@model GelGit1.Models.Entity.Kullanicilar
+
+@{
+    ViewBag.Title = "Surucudetaylari";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3>Sürücü Bilgileri</h3>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.İsim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.İsim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soyİsim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyİsim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciOkulB.OkulAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciOkulB.OkulAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciOkulB.Bolumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciOkulB.Bolumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kullaniciİletisim.TelNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullaniciİletisim.TelNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciArac.AracMarka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracMarka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciArac.AracModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciArac.AracRenk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracRenk)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Yolculuklarıma Dön", "Yolculuklarim" , "Yolculuk")
+</p>

@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "YeniKullanici";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+    <form class="form-group" method="post">
+       
+        <h3>     Gelgit'e Kaydolun...  </h3> 
+      
+            <div style="margin-top:40px" class="col-md-4">
+
+                <label> Adınız: </label>
+                <input class="form-control" type="text" name="İsim" required />
+                <br />
+                <label> Soyadınız: </label>
+                <input type="text" class="form-control" name="Soyİsim" required />
+                <br />
+                <label> E-Posta Adresiniz:</label>
+                <input type="text" class="form-control" name="EPosta" required />
+                <br />
+                <label> Telefon Numaranız: </label>
+                <input type="text" class="form-control" name="TelNo" required />
+                <br />
+                <label> Okuduğunuz Üniversite: </label>
+                <input type="text" class="form-control" name="OkulAdi" required />
+                <br />
+                <label> Okuduğunuz Bölüm: </label>
+                <input type="text" class="form-control" name="Bolumu" required />
+                <br />
+                <label> Okul Numaranız: </label>
+                <input type="text" class="form-control" name="OkulNo" required />
+                <br />
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" value="True" id="test" name="AracDurumu" />
+                    <label class="form-check-label"> Aracım Var </label>
+                </div>
+                <br />
+
+                <input type="text" class="form-control" id="a1" name="AracMarka" disabled placeholder="Aracınızın Markası" />
+                <br />
+                <input type="text" class="form-control" id="a2" name="AracModel" disabled placeholder="Aracınızın Modeli" />
+                <br />
+                <input type="text" class="form-control" id="a3" name="AracRenk" disabled placeholder="Aracınızın Rengi" />
+                <br />
+                <label> Bir Kullanıcı Adı belirleyiniz: </label>
+                <input type="text" class="form-control" name="UserName" required />
+                <br />
+                <label> Parola Belirleyiniz: </label>
+                <input type="password" class="form-control" id="myInput" name="Parola" required />
+                <br/>
+                <input type="checkbox" onclick="myFunction()"> Show Password
+                <br />
+                <br />
+
+
+
+
+
+                <div style="margin-top:40px">
+                    <button class="btn btn-danger">Kayıt Ol</button>
+                </div>
+                <br />
+            </div>
+
+    </form>
+
+<script>
+    $('#test').click(function () {
+        $('#a1,#a2,#a3').attr('disabled', !(this.checked))    //arac bilgisini alan inputları açıp kapatıyoruz
+        $('#a1,#a2,#a3').val('');                             //Gerektiğinde bu inputların içini temizliyoruz
+    });
+
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+</script>

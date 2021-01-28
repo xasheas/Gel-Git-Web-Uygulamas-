@@ -1,0 +1,96 @@
+﻿
+@model GelGit1.Models.Entity.Class1
+
+
+
+
+
+@{
+    ViewBag.Title = "YolculukDetaylari";
+
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3>İlgili Yolculuk Detayları</h3>
+
+<div>
+
+    <hr />
+
+
+    <div class="container">
+        <h4> Yolculuk istikameti</h4>
+
+
+
+        <strong> @Html.DisplayFor(model => model.YolculukDetaylaric.KalkisNoktasi)</strong>
+
+        <a>&nbsp;</a>
+        <a class="glyphicon glyphicon-arrow-right">&nbsp;</a>
+        <strong> @Html.DisplayFor(model => model.YolculukDetaylaric.VarisNoktasi)</strong>
+
+        <br />
+        <br />
+        <h4> Kalkış Zamanı </h4>
+
+        <strong>@Html.DisplayFor(model => model.YolculukDetaylaric.KalkisZamani)</strong>
+        <br />
+        <br />
+
+        <h4> Yolculuk Ücreti</h4>
+        <strong>@Html.DisplayFor(model => model.YolculukDetaylaric.Ucret) TL</strong>
+        <br />
+        <br />
+
+
+        <h4>Sürücünün Mesajı</h4>
+        <strong>@Html.DisplayFor(model => model.YolculukDetaylaric.SurucuMesaji)</strong>
+        <br />
+        <br />
+
+        <h4> Araç Bilgileri: </h4>
+        <strong>@Html.DisplayFor(model => model.Kullanicilarc.KullaniciArac.AracMarka) -</strong>
+
+        <strong>@Html.DisplayFor(model => model.Kullanicilarc.KullaniciArac.AracModel) -</strong>
+
+        <strong>@Html.DisplayFor(model => model.Kullanicilarc.KullaniciArac.AracRenk)</strong>
+
+
+        <br />
+        <br />
+
+        <h4> Sürücü Bilgileri: </h4>
+        Adı: <strong>@Html.DisplayFor(model => model.Kullanicilarc.İsim) @Html.DisplayFor(model => model.Kullanicilarc.Soyİsim)</strong>
+        <br />
+        Üniversite: <strong>@Html.DisplayFor(model => model.Kullanicilarc.KullaniciOkulB.OkulAdi)</strong>
+        <br />
+        Bölüm: <strong> @Html.DisplayFor(model => model.Kullanicilarc.KullaniciOkulB.Bolumu)</strong>
+        <br />
+        
+
+
+
+
+
+
+
+    </div>
+    <br />
+
+    <a href="/Yolculuk/YolculugaKaydol/@Model.YolculukDetaylaric.YolculukDetayID" class=" btn btn-success"> Yolculuğa kaydol </a>
+
+
+
+
+
+
+
+
+
+</div>
+<div>
+    <p style="margin-top:80px">
+        @Html.ActionLink("..", "Edit", new { id = Model.YolculukDetaylaric.YolculukDetayID }) |
+        @Html.ActionLink("Yolculuklar Sayfasına Dön", "YolculukListele","Yolculuk")
+    </p>
+</div>

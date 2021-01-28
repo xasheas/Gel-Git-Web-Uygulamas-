@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Home/Index/">GEL GİT</a>
+                </div>
+                @if (Session["UserName"] == null)
+                {
+                    <ul class="nav navbar-nav">
+                        <li role="presentation" class="disabled"><a> Yolculuk Ara </a></li>
+                        <li role="presentation" class="disabled"><a> Yolculuk İlanı Ver </a></li>
+                       
+                        <li role="presentation" class="dropdown disabled">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 
+                            Yolculuklarım
+                            <span class="caret"></span> </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation" class="disabled" ><a href="#"> Kayıt Olduğum Yolculuklar </a></li>
+                                <li role="presentation" class="disabled" ><a href="#"> İlanlarım </a></li>                          
+                            </ul>
+                        </li>                                                 
+                    </ul>
+                }
+
+                else
+                {
+            <ul class="nav navbar-nav">
+                <li><a href="/Yolculuk/YolculukListele/"> Yolculuk Ara </a></li>
+                <li><a href="/Yolculuk/YeniYolculuk/"> Yolculuk İlanı Ver </a></li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Yolculuklarım
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Yolculuk/Yolculuklarim"> Kayıt Olduğum Yolculuklar </a></li>
+                        <li><a href="/Yolculuk/Ilanlarim/"> İlanlarım </a></li>
+                    </ul>
+                </li>
+            </ul>
+                }
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["UserName"] == null)
+                    {
+                        <li><a href="/Kullanici/YeniKullanici/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="/Kullanici/Login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Kullanici/Profil/"> @Session["UserName"].ToString() </a></li>
+                        <li><a href="/Kullanici/Logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    }
+
+                </ul>
+            </div>
+        </nav>
+    
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+
+
+    <div class="container">
+      <hr />
+            <footer>
+                <p>&copy; 2019 - @DateTime.Now.Year     GelGit - mwidget@windowslive.com </p>
+
+            </footer>
+       <hr/>
+    </div>
+
+</body>
+</html>

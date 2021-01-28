@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h4 style="margin-top:60px">Hesabınıza Giriş Yapın</h4>
+
+<form class="form-group" method="post">
+    <div style="margin-top:40px" class="col-md-3">
+
+
+        <label> Kullanıcı Adı : </label>
+        <input type="text" class="form-control" name="UserName" required placeholder="UserName" />
+        <br />
+        <br/>
+        <label> Parola :</label>
+
+        <input type="password" class="form-control" id="myInput" name="Parola" required placeholder="Password"/>
+        <br />
+        <input type="checkbox" onclick="myFunction()"> Show Password
+
+
+        <div style="margin-top:50px">
+            <button class="btn btn-danger"> Giriş Yap </button>
+        </div>
+
+        <br />
+
+        <div style="margin-top:60px">
+            @Html.ActionLink("AnaSayfaya Dön", "Index", "Home")
+        </div>
+
+    </div>
+</form>
+
+
+
+
+
+<script>
+
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+</script>

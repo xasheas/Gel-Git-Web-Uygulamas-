@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "YeniYolculuk";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3>Yeni Yolculuk İlanı Ver</h3>
+
+<form class="form-group" method="post">
+    <div style="margin-top:40px" class="col-md-4">
+
+
+        <label> Kalkış Noktası </label>
+        <input type="text" class="form-control" name="KalkisNoktasi" required />
+        <br /> 
+        <label> Kalkış Zamanı </label>
+        <input class="form-control" type="datetime-local" name="KalkisZamani" required />
+        <br />
+        <label> Varış Noktası </label>
+        <input type="text" class="form-control" name="VarisNoktasi" required />
+        <br />
+        <label> Ücret </label>
+        <input type="number" class="form-control" name="Ucret" required />
+        <br />
+        <label> Alınacak Yolcu Sayısı </label>
+        <input type="number" class="form-control" name="BosKoltukSayisi" required />
+        <br />
+        <label> Yolculuk İle İlgili Bir Notunuz Var Mı?</label>
+        <input type="text" class="form-control" placeholder="*Doldurulması İsteğe Bağlı*" name="SurucuMesaji" />
+
+
+
+
+        <div style="margin-top:20px">
+            <button class="btn btn-info">Yolculuk ilanını ver</button>
+        </div>
+        <br />
+    </div>
+
+</form>

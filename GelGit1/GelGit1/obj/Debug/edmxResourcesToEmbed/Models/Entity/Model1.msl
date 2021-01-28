@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gelgitdtbsModelStoreContainer" CdmEntityContainer="gelgitdtbsEntities">
+    <EntitySetMapping Name="KullaniciArac">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.KullaniciArac">
+        <MappingFragment StoreEntitySet="KullaniciArac">
+          <ScalarProperty Name="AracID" ColumnName="AracID" />
+          <ScalarProperty Name="AracMarka" ColumnName="AracMarka" />
+          <ScalarProperty Name="AracModel" ColumnName="AracModel" />
+          <ScalarProperty Name="AracRenk" ColumnName="AracRenk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullaniciİletisim">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.Kullaniciİletisim">
+        <MappingFragment StoreEntitySet="Kullaniciİletisim">
+          <ScalarProperty Name="İletisimID" ColumnName="İletisimID" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="İsim" ColumnName="İsim" />
+          <ScalarProperty Name="Soyİsim" ColumnName="Soyİsim" />
+          <ScalarProperty Name="AracDurumu" ColumnName="AracDurumu" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullaniciOkulB">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.KullaniciOkulB">
+        <MappingFragment StoreEntitySet="KullaniciOkulB">
+          <ScalarProperty Name="OkulBID" ColumnName="OkulBID" />
+          <ScalarProperty Name="OkulNo" ColumnName="OkulNo" />
+          <ScalarProperty Name="Bolumu" ColumnName="Bolumu" />
+          <ScalarProperty Name="OkulAdi" ColumnName="OkulAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullaniciPuani">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.KullaniciPuani">
+        <MappingFragment StoreEntitySet="KullaniciPuani">
+          <ScalarProperty Name="PuanID" ColumnName="PuanID" />
+          <ScalarProperty Name="TotalOylama" ColumnName="TotalOylama" />
+          <ScalarProperty Name="TotalPuan" ColumnName="TotalPuan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yolcular">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.Yolcular">
+        <MappingFragment StoreEntitySet="Yolcular">
+          <ScalarProperty Name="YolculukID" ColumnName="YolculukID" />
+          <ScalarProperty Name="YolcuID" ColumnName="YolcuID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YolculukDetaylari">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.YolculukDetaylari">
+        <MappingFragment StoreEntitySet="YolculukDetaylari">
+          <ScalarProperty Name="YolculukDetayID" ColumnName="YolculukDetayID" />
+          <ScalarProperty Name="KalkisZamani" ColumnName="KalkisZamani" />
+          <ScalarProperty Name="KalkisNoktasi" ColumnName="KalkisNoktasi" />
+          <ScalarProperty Name="VarisNoktasi" ColumnName="VarisNoktasi" />
+          <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+          <ScalarProperty Name="SurucuMesaji" ColumnName="SurucuMesaji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yolculuklar">
+      <EntityTypeMapping TypeName="gelgitdtbsModel.Yolculuklar">
+        <MappingFragment StoreEntitySet="Yolculuklar">
+          <ScalarProperty Name="YolculukID" ColumnName="YolculukID" />
+          <ScalarProperty Name="SurucuID" ColumnName="SurucuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

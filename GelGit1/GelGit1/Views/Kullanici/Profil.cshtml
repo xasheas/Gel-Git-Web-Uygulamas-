@@ -1,0 +1,120 @@
+﻿@model GelGit1.Models.Entity.Kullanicilar
+
+@{
+    ViewBag.Title = "Profil";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3>@Session["UserName"].ToString()</h3>
+
+<div>
+    <hr />
+    <h4>Kişisel Bilgileriniz:</h4>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Ad </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.İsim)
+        </dd>
+
+        <dt>
+            <label> Soyad </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyİsim)
+        </dd>
+
+        <dt>
+            <label> Üniversite </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciOkulB.OkulAdi)
+        </dd>
+
+        <dt>
+            <label> Bölüm </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciOkulB.Bolumu)
+        </dd>
+
+        <dt>
+            <label> Okul No </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciOkulB.OkulNo)
+        </dd>
+
+        <dt>
+            <label> Telefon </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullaniciİletisim.TelNo)
+        </dd>
+
+        <dt>
+            <label> E-Posta </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kullaniciİletisim.EPosta)
+        </dd>
+
+
+        <hr />
+        <h4>Araç Bilgileriniz:</h4>
+        <dt>
+
+
+            <label> Aracım Var </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AracDurumu)
+        </dd>
+
+        <dt>
+            <label> Aracımın Markası</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracMarka)
+        </dd>
+
+        <dt>
+            <label> Modeli </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracModel)
+        </dd>
+
+        <dt>
+            <label> Rengi </label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciArac.AracRenk)
+        </dd>
+
+
+
+
+
+
+    </dl>
+    
+</div>
+<p>
+    <br/>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KullaniciID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

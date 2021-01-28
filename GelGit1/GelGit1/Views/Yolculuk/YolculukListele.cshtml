@@ -1,0 +1,41 @@
+﻿@using GelGit1.Models.Entity
+@model List<YolculukDetaylari>
+
+
+@{
+    ViewBag.Title = "YolculukListele";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3>Tüm Yolculuklar</h3>
+<br />
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kalkış Noktası</th>
+            <th>Varış Noktası</th>
+            <th>Kalkış Zamanı</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ylclklr in Model)
+       {
+        <tr>
+            <td>@ylclklr.KalkisNoktasi</td>
+            <td>@ylclklr.VarisNoktasi</td>
+            <td>@ylclklr.KalkisZamani</td>
+
+            <td><a href="/Yolculuk/YolculukDetaylari/@ylclklr.YolculukDetayID" class=" btn btn-success"> Detaylar </a></td>
+        </tr>
+    }
+
+    </tbody>
+
+
+
+</table>
+
+
+
+

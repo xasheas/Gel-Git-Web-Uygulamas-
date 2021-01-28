@@ -1,0 +1,42 @@
+﻿@using GelGit1.Models.Entity
+@model List<YolculukDetaylari>
+
+
+@{
+    ViewBag.Title = "İlamlarim";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h3> Verdiğim Yolculuk İlanları </h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kalkış Noktası</th>
+        <th>Varış Noktası</th>
+        <th>Kalkış Zamanı</th>
+        <th>Ucret</th>
+        <th>Mesajım</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var ylclklr in Model)
+        {  if (ylclklr.Yolculuklar.SurucuID == (int)Session["ID"])
+          {
+            <tr>
+                <td>@ylclklr.KalkisNoktasi</td>
+                <td>@ylclklr.VarisNoktasi</td>
+                <td>@ylclklr.KalkisZamani</td>
+                <td>@ylclklr.Ucret TL</td>
+                <td>@ylclklr.SurucuMesaji</td>
+                <td><a href="/Yolculuk/Sil/@ylclklr.YolculukDetayID" class=" btn btn-warning"> Sil </a></td>
+            </tr>
+            }
+        }
+
+    </tbody>
+
+
+
+</table>
+

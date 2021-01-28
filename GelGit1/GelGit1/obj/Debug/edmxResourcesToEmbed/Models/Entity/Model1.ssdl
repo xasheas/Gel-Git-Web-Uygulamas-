@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gelgitdtbsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="KullaniciArac">
+    <Key>
+      <PropertyRef Name="AracID" />
+    </Key>
+    <Property Name="AracID" Type="int" Nullable="false" />
+    <Property Name="AracMarka" Type="nvarchar" MaxLength="50" />
+    <Property Name="AracModel" Type="nvarchar" MaxLength="50" />
+    <Property Name="AracRenk" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Kullaniciİletisim">
+    <Key>
+      <PropertyRef Name="İletisimID" />
+    </Key>
+    <Property Name="İletisimID" Type="int" Nullable="false" />
+    <Property Name="TelNo" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="EPosta" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="İsim" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyİsim" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AracDurumu" Type="bit" Nullable="false" />
+    <Property Name="Parola" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciOkulB">
+    <Key>
+      <PropertyRef Name="OkulBID" />
+    </Key>
+    <Property Name="OkulBID" Type="int" Nullable="false" />
+    <Property Name="OkulNo" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="Bolumu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OkulAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullaniciPuani">
+    <Key>
+      <PropertyRef Name="PuanID" />
+    </Key>
+    <Property Name="PuanID" Type="int" Nullable="false" />
+    <Property Name="TotalOylama" Type="int" />
+    <Property Name="TotalPuan" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Yolcular">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="YolculukID" Type="int" Nullable="false" />
+    <Property Name="YolcuID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YolculukDetaylari">
+    <Key>
+      <PropertyRef Name="YolculukDetayID" />
+    </Key>
+    <Property Name="YolculukDetayID" Type="int" Nullable="false" />
+    <Property Name="KalkisZamani" Type="smalldatetime" Nullable="false" />
+    <Property Name="KalkisNoktasi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VarisNoktasi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ucret" Type="tinyint" Nullable="false" />
+    <Property Name="SurucuMesaji" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Yolculuklar">
+    <Key>
+      <PropertyRef Name="YolculukID" />
+    </Key>
+    <Property Name="YolculukID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurucuID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_KullaniciArac_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="KullaniciArac" Type="Self.KullaniciArac" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="KullaniciArac">
+        <PropertyRef Name="AracID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullaniciİletisim_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Kullaniciİletisim" Type="Self.Kullaniciİletisim" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Kullaniciİletisim">
+        <PropertyRef Name="İletisimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KullaniciOkulB_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="KullaniciOkulB" Type="Self.KullaniciOkulB" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="KullaniciOkulB">
+        <PropertyRef Name="OkulBID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KullaniciPuani_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="KullaniciPuani" Type="Self.KullaniciPuani" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="KullaniciPuani">
+        <PropertyRef Name="PuanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yolcular_Yolculuklar">
+    <End Role="Yolculuklar" Type="Self.Yolculuklar" Multiplicity="1" />
+    <End Role="Yolcular" Type="Self.Yolcular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Yolculuklar">
+        <PropertyRef Name="YolculukID" />
+      </Principal>
+      <Dependent Role="Yolcular">
+        <PropertyRef Name="YolculukID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YolculukDetaylari_Yolculuklar">
+    <End Role="Yolculuklar" Type="Self.Yolculuklar" Multiplicity="1" />
+    <End Role="YolculukDetaylari" Type="Self.YolculukDetaylari" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Yolculuklar">
+        <PropertyRef Name="YolculukID" />
+      </Principal>
+      <Dependent Role="YolculukDetaylari">
+        <PropertyRef Name="YolculukDetayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gelgitdtbsModelStoreContainer">
+    <EntitySet Name="KullaniciArac" EntityType="Self.KullaniciArac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullaniciİletisim" EntityType="Self.Kullaniciİletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KullaniciOkulB" EntityType="Self.KullaniciOkulB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KullaniciPuani" EntityType="Self.KullaniciPuani" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yolcular" EntityType="Self.Yolcular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YolculukDetaylari" EntityType="Self.YolculukDetaylari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yolculuklar" EntityType="Self.Yolculuklar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_KullaniciArac_Kullanicilar" Association="Self.FK_KullaniciArac_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="KullaniciArac" EntitySet="KullaniciArac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullaniciİletisim_Kullanicilar" Association="Self.FK_Kullaniciİletisim_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Kullaniciİletisim" EntitySet="Kullaniciİletisim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KullaniciOkulB_Kullanicilar" Association="Self.FK_KullaniciOkulB_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="KullaniciOkulB" EntitySet="KullaniciOkulB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KullaniciPuani_Kullanicilar" Association="Self.FK_KullaniciPuani_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="KullaniciPuani" EntitySet="KullaniciPuani" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yolcular_Yolculuklar" Association="Self.FK_Yolcular_Yolculuklar">
+      <End Role="Yolculuklar" EntitySet="Yolculuklar" />
+      <End Role="Yolcular" EntitySet="Yolcular" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YolculukDetaylari_Yolculuklar" Association="Self.FK_YolculukDetaylari_Yolculuklar">
+      <End Role="Yolculuklar" EntitySet="Yolculuklar" />
+      <End Role="YolculukDetaylari" EntitySet="YolculukDetaylari" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
